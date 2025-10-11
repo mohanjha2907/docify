@@ -1,4 +1,5 @@
 import { Editor } from "./editor";
+import {Toolbar} from "./toolbar";
 interface DocumentIdPageProps{
     params: {documentId: string};
 }
@@ -6,7 +7,8 @@ interface DocumentIdPageProps{
 const DocumentIdPage = ({params}: DocumentIdPageProps)=>{
     const {documentId}=params;
     return (
-        <div className="min-h-screen bg-[#FAFBFD]">  
+        <div className="min-h-screen bg-[#FAFBFD]"> 
+            <Toolbar/> 
             <Editor/>
         </div>
     )
