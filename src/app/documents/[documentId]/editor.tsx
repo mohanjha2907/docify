@@ -3,6 +3,8 @@
 import {useEditor, EditorContent} from '@tiptap/react'
 import TaskItem from '@tiptap/extension-task-item'
 import Image from '@tiptap/extension-image'
+import {Color} from '@tiptap/extension-color'
+import Highlight from '@tiptap/extension-highlight'
 import ImageResize from 'tiptap-extension-resize-image'
 import Table from '@tiptap/extension-table'
 import FontFamily from '@tiptap/extension-font-family'
@@ -56,6 +58,10 @@ export const Editor=()=>{
         extensions:[
             Starterkit,
             FontFamily,
+            Color,
+            Highlight.configure({
+              multicolor:true,
+            }),
             TextStyle,
             Image,
             ImageResize,
