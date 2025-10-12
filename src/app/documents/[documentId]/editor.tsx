@@ -17,6 +17,7 @@ import TaskList from '@tiptap/extension-task-list'
 import Starterkit from '@tiptap/starter-kit'
 import {useEditorStore} from '@/store/use-editor-store'
 import { SpellCheck } from 'lucide-react'
+import Link from '@tiptap/extension-link'
 export const Editor=()=>{
 
   const {setEditor}= useEditorStore();
@@ -59,6 +60,11 @@ export const Editor=()=>{
             Starterkit,
             FontFamily,
             Color,
+            Link.configure({
+              openOnClick:false,
+              autolink:true,
+              defaultProtocol:"https",
+            }),
             Highlight.configure({
               multicolor:true,
             }),
@@ -98,7 +104,7 @@ export const Editor=()=>{
         <div className='size-full overflow-x-auto bg-[#F9FBFD] px-4 print:p-0 print:bg-white print:overflow-visible'>
 
            <div className='min-w-max flex  justify-center w-[186px py-4 print:py:py-0 mx-auto print:w-full print:min-w-0'>
-                <EditorContent editor={editor}/>
+                <EditorContent editor={editor} />
             </div> 
             
         </div>
