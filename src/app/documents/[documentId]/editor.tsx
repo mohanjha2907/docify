@@ -16,6 +16,8 @@ import TableRow from '@tiptap/extension-table-row'
 import TaskList from '@tiptap/extension-task-list'
 import Starterkit from '@tiptap/starter-kit'
 import {useEditorStore} from '@/store/use-editor-store'
+import TextAlign from '@tiptap/extension-text-align'
+import { FontSizeExtension } from '@/extensions/font-size'
 import { SpellCheck } from 'lucide-react'
 import Link from '@tiptap/extension-link'
 export const Editor=()=>{
@@ -57,7 +59,12 @@ export const Editor=()=>{
             }
         },
         extensions:[
+
             Starterkit,
+            FontSizeExtension,
+            TextAlign.configure({
+              types:["heading" , "paragraph"]
+            }),
             FontFamily,
             Color,
             Link.configure({
