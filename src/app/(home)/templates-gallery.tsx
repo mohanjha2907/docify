@@ -9,14 +9,30 @@ import {
 }from "@/components/ui/carousel"
 import { templates } from "@/constant/template";
 import { cn } from "@/lib/utils"
-
+import { useRouter } from 'next/navigation';
+import { useMutation } from 'convex/react';
+import { api } from '../../../convex/_generated/api';
+import { title } from 'process';
 
 
 
 export const TemplatesGallery=()=>{
+    const router= useRouter();
+    const create=useMutation(api.documents.create);
+    const [isCreating,setIsCreating]=useState(false);
     const [mounted, setMounted] = useState(false)
-    const iscreating = false
+    
 
+    const onTemplateClick=(title:string,intialContent:string)=>{
+        setIsCreating(true);
+        create({title,intialContent})
+        .then((documentId)=>{
+            router.push(`/documents/${documentId}`)
+        })
+        .finally(()=>{
+            setIsCreating(false);
+        })
+    }
     useEffect(() => {
         setMounted(true)
     }, [])
@@ -36,11 +52,11 @@ export const TemplatesGallery=()=>{
                             >
                                 <div className={cn(
                                     "aspect-[3/4] flex flex-col gap-y-2.5",
-                                    iscreating&& "pointer-events-none opacity-50"
+                                    isCreating&& "pointer-events-none opacity-50"
                                 )}>
                                     <button
-                                        disabled={iscreating}
-                                        onClick={()=>{}}
+                                        disabled={isCreating}
+                                        onClick={()=>onTemplateClick(template.label,"")}
                                         style={{
                                             backgroundImage:`url(${template.imageUrl})`,
                                             backgroundSize:"cover",
