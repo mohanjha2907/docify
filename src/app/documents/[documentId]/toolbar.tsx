@@ -2,8 +2,8 @@
 import { cn } from "@/lib/utils";
 import { useEditorStore } from "@/store/use-editor-store";
 import { Separator } from "@/components/ui/separator"
-import { AlignCenterIcon, AlignJustifyIcon, AlignLeftIcon, AlignRightIcon, BoldIcon, ChevronDownIcon, HighlighterIcon, ImageIcon, ItalicIcon, Link2Icon, ListIcon, ListOrderedIcon, ListTodoIcon, LucideIcon, MessageSquarePlusIcon, MinusIcon, PlusIcon, PrinterIcon, Redo2Icon,  RemoveFormattingIcon,  SearchIcon,  SpellCheck2Icon,  SpellCheckIcon,  UnderlineIcon,  Undo2Icon, UploadIcon } from "lucide-react";
-import Underline from "@tiptap/extension-underline";
+import { AlignCenterIcon, AlignJustifyIcon, AlignLeftIcon, AlignRightIcon, BoldIcon, ChevronDownIcon, HighlighterIcon, ImageIcon, ItalicIcon, Link2Icon, ListIcon, ListOrderedIcon, ListTodoIcon, LucideIcon, MessageSquarePlusIcon, MinusIcon, PlusIcon, PrinterIcon, Redo2Icon,  RemoveFormattingIcon,  SearchIcon,  UnderlineIcon,  Undo2Icon, UploadIcon } from "lucide-react";
+
 import {type Level} from "@tiptap/extension-heading"
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem,DropdownMenuTrigger} from '@/components/ui/dropdown-menu'
 
@@ -12,7 +12,7 @@ import { type ColorResult, SketchPicker } from "react-color";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import TextAlign from "@tiptap/extension-text-align";
+
 
 const FontSizeButton = () => {
     const { editor } = useEditorStore();
@@ -536,14 +536,8 @@ export const Toolbar=()=>{
             icon: PrinterIcon,
             onClick:()=>window.print(),
         },
-        {
-            label: "Spell Check",
-            icon: SpellCheckIcon,
-            onClick: () => {
-                const current = editor?.view.dom.getAttribute("spellcheck");
-                editor?.view.dom.setAttribute("spellcheck", current === "false" ? "true" : "false");
-            },
-        }
+        
+
 
        ],
        [

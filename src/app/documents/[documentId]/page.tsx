@@ -5,6 +5,7 @@ import { Toolbar } from "./toolbar";
 import { Navbar } from "./navbar";
 export default function DocumentIdPage() {
   const { documentId } = useParams() as { documentId: string };
+  console.log(documentId);
 
   return (
     <div className="min-h-screen bg-[#FAFBFD]">

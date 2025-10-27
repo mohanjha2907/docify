@@ -9,15 +9,17 @@ import {
     MenubarItem,
     MenubarMenu,
     MenubarSeparator,
-    MenubarShortcut,
+
     MenubarSub,
     MenubarSubContent,
     MenubarSubTrigger,
     MenubarTrigger,
 } from '@/components/ui/menubar'
-import { FileIcon, FileJsonIcon, FilePenIcon, FilePlusIcon, FileTextIcon, GlobeIcon, PrinterIcon } from "lucide-react"
+import { FileIcon, FileJsonIcon,  FileTextIcon, GlobeIcon, PrinterIcon } from "lucide-react"
 import { BsFilePdf } from "react-icons/bs"
 import { useEditorStore } from "@/store/use-editor-store"
+
+
 export const Navbar=()=>{
 
     const {editor} =useEditorStore();
@@ -114,19 +116,9 @@ export const Navbar=()=>{
                                             </MenubarItem>
                                         </MenubarSubContent>  
                                     </MenubarSub>
-                                    <MenubarItem>
-                                        <FilePlusIcon className="size-4 mr-2"/>
-                                        New Document
-                                    </MenubarItem>
-                                    <MenubarSeparator></MenubarSeparator>
-                                    <MenubarItem>
-                                        <FilePenIcon className="size-4 mr-2"/>
-                                        Rename
-                                    </MenubarItem>
-                                    <MenubarItem>
-                                        <FilePenIcon className="size-4 mr-2"/>
-                                        Remove
-                                    </MenubarItem>
+                                    
+                                    
+                                    
                                     <MenubarSeparator/>
                                     <MenubarItem onClick={()=>window.print()}>
                                         <PrinterIcon className="size-4 mr-2"/>
